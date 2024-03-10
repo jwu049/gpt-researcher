@@ -21,7 +21,7 @@ def generate_report_prompt(question, context, report_format="apa", total_words=1
 
     return f'Information: """{context}"""\n\n' \
            f'Using the above information, answer the following' \
-           f' query or task: "{question}" in a detailed report --' \
+           f' query or task: "{question}" in a detailed chinese report --' \
            " The report should focus on the answer to the query, should be well structured, informative," \
            f" in depth and comprehensive, with facts and numbers if available and a minimum of {total_words} words.\n" \
            "You should strive to write the report as long as you can using all relevant and necessary information provided.\n" \
@@ -54,7 +54,9 @@ def generate_resource_report_prompt(question, context, report_format="apa", tota
            'Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.\n' \
            'Include relevant facts, figures, and numbers whenever available.\n' \
            'The report should have a minimum length of 700 words.\n' \
-            'You MUST include all relevant source urls.'
+           'You MUST include all relevant source urls.\n' \
+           'In addition the report must be provided with Chinese.'
+
 
 def generate_custom_report_prompt(query_prompt, context, report_format="apa", total_words=1000):
     return f'"{context}"\n\n{query_prompt}'
@@ -71,7 +73,8 @@ def generate_outline_report_prompt(question, context, report_format="apa", total
            f' for the following question or topic: "{question}". The outline should provide a well-structured framework' \
            ' for the research report, including the main sections, subsections, and key points to be covered.' \
            ' The research report should be detailed, informative, in-depth, and a minimum of 1,200 words.' \
-           ' Use appropriate Markdown syntax to format the outline and ensure readability.'
+           ' Use appropriate Markdown syntax to format the outline and ensure readability.' \
+           ' In addition the outline must be provided with Chinese.'
 
 
 def get_report_by_type(report_type):
@@ -119,6 +122,6 @@ def generate_summary_prompt(query, data):
     """
 
     return f'{data}\n Using the above text, summarize it based on the following task or query: "{query}".\n If the ' \
-           f'query cannot be answered using the text, YOU MUST summarize the text in short.\n Include all factual ' \
+           f'query cannot be answered using the text, YOU MUST summarize the text in short with chinese.\n Include all factual ' \
            f'information such as numbers, stats, quotes, etc if available. '
 
